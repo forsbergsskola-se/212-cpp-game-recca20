@@ -1,18 +1,15 @@
 #include "Image.h"
+#include <SDL_image.h>
 #include "SDL.h"								
 #include <cstdio>
 
-Image::Image(const char* path) : success{} {
-	
-	//Load splash image
-	imageSurface = SDL_LoadBMP(path);
-	if (!imageSurface)
-	{
-		printf("Unable to load image %s! SDL Error: %s\n",path, SDL_GetError());
-		return;
-	}
-	success = true;
-}
+Image::Image(SDL_Surface* surface) :
+	imageSurface{surface},
+	success{surface != nullptr},
+	x{},
+	y{},
+	width{ 100 },
+	height{ 100 } {}
 
 Image::~Image() {
 	//Deallocate surface

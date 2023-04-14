@@ -1,9 +1,10 @@
 #include "Window.h"
 #include <cstdio>
 #include <SDL.h>
+#include "IImageLoader.h"
 
-Window::Window(int width, int height) : success{}
-{
+Window::Window(int width, int height, IImageLoader* imageLoader) 
+	: success{}, imageLoader{imageLoader} {
 
 	//Initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -28,15 +29,25 @@ Window::Window(int width, int height) : success{}
 Window::~Window() {
 	//Destroy window
 	SDL_DestroyWindow(window);
-	window = NULL;
+	window = nullptr;
 
 	//Quit SDL subsystems
 	SDL_Quit();
 }
 
 void Window::render(Image* image) {
+	SDL_Rect targetRectangle{ 
+		image->x, 
+		image->y, 
+		image->width, 
+		image->height 
+	};
 	//Apply the image
-	SDL_BlitSurface(image->getResource(), NULL, screenSurface, NULL);
+	SDL_BlitScaled(image->getResource(), nullptr, screenSurface, &targetRectangle);
 	//Update the surface
 	SDL_UpdateWindowSurface(window);
+}
+
+std::unique_ptr<Image> Window::loadImage(const char* path) {
+	return imageLoader->loadImage(path, screenSurface->format);
 }
