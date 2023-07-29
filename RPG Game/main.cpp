@@ -200,7 +200,7 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	SDL_Window* window = SDL_CreateWindow("RPG GAME!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 960, SDL_WINDOW_SHOWN);
+	SDL_Window* window = SDL_CreateWindow("RPG GAME!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
 	if (window == NULL)
 	{
 		cout << "SDL window Error: " << SDL_GetError() << endl;
@@ -228,6 +228,27 @@ int main(int argc, char** argv) {
 	{
 		cout << "Image did not load! " << IMG_GetError() << endl;
 	}
+	//ITEMS(using arrays...)
+	//items as ints. 0 = no items, 1 = chocolate, 2 = grenade, 3 = atk up, 4 = def up
+	//integer array holding 10 int variables
+	int items[10];
+	//loop through array using for loop and set each slot to = 0 (no item)
+	for (int i = 0; i <= 9; i++)
+	{
+		//reference index using variable
+		items[i] = 0;
+	}
+	//set first item slot(index 0) to be our int number representing a chocolate
+	items[0] = 1;
+	//items[1] = 1;
+	//items[2] = 3;
+
+	//cout << "item[0] << endl;
+	for (int i = 0; i <= 9; i++)
+	{
+		cout << "items[" << i << "] = " << items[i] << endl;
+	}
+
 
 	bool keepLooping = true;
 	//Game Loop
@@ -277,6 +298,7 @@ int main(int argc, char** argv) {
 
 	}
 	//Clean Up
+	SDL_DestroyTexture(testImg);
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
