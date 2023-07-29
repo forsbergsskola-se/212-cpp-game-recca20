@@ -4,6 +4,52 @@
 
 using namespace std;
 
+int puzzle1() {
+	cout << "Puzzle 1! What is 7 + 2?" << endl;
+	int num;
+	cin >> num;
+	if (num == 9)
+	{
+		cout << "CORRECT!" << endl; 
+		return 0;
+	}
+	else
+	{
+		cout << "INCORRECT!" << endl;
+		return 9;
+	}
+}
+
+int puzzle2(int x, int y) {
+	cout << "Puzzle 2! What is " << x << " + " << y << "?" << endl;
+	int num;
+	cin >> num;
+	if (num == x + y) {
+		cout << "CORRECT!" << endl;
+		return 0;
+	}
+	else
+	{
+		cout << "INCOREECT" << endl;
+		return 15;
+	}
+}
+
+int puzzle3(string name) {
+	cout << "Puzzle 3! What is your name?" << endl;
+	string n;
+	cin >> n;
+	if (n == name) {
+		cout << "CORRECT!" << endl;
+		return 0;
+	}
+	else
+	{
+		cout << "INCOREECT" << endl;
+		return 25;
+	}
+}
+
 void main() {
 	//all of our starter code will start here
 
@@ -100,6 +146,15 @@ void main() {
 	{
 		cout << i << "..." << endl;
 	}
+
+	//intro to functions
+	cout << "In the first room stands a tall slender fugure in a cloak." << endl;
+	cout << "Totally skull faced. He speaks:" << endl;
+	cout << "I will ask you 3 questions with varuous punishments if you get them wrong..." << endl;
+	int dmg = puzzle1() + puzzle2(str, agi) + puzzle3(name);
+
+	hp = hp - dmg;
+	cout << "You are inflicted " << dmg << " amount of damage! Your HP is now " << hp << endl;
 
 	//lets user interact by pressing anykey
 	system("pause");
