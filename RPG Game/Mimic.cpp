@@ -15,6 +15,6 @@ Mimic::~Mimic()
 {
 }
 
-string getName() {
+string Mimic::getName() {
 	return "Mimic";
 }

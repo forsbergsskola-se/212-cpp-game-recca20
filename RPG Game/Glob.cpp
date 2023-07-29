@@ -13,6 +13,6 @@ Glob::~Glob()
 {
 }
 
-string getName() {
+string Glob::getName() {
 	return "Glob";
 }

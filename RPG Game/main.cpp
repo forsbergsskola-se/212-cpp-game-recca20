@@ -122,7 +122,7 @@ void main() {
 
 	Character testCharacter2;
 	testCharacter2.setupStats(2343, 23, 34, 23);
-	testCharacter.displayStats();
+	testCharacter2.displayStats();
 
 	//testCharacter2.hp = 22;
 	Hero hero;
@@ -132,8 +132,25 @@ void main() {
 	Glob glob1;//calls constructor and fills in base stats
 
 	hero.takeDamage(glob1.getDamage());
+	glob1.takeDamage(hero.getDamage());
+
+	hero.displayStats();
 	glob1.displayStats();
 
+	//class object pointers
+	Glob* globPtr = new Glob();
+	(*globPtr).displayStats();
+	globPtr->takeDamage(3453);
+	globPtr->displayStats();
+
+	delete globPtr;
+	globPtr = NULL;
+
+	if (globPtr != NULL) 
+		cout << "glob ptr pointing to something" << endl;
+	else
+		cout << "glob is dead!!!" << endl;
+	
 
 	//lets user interact by pressing anykey
 	system("pause");
