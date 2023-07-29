@@ -46,6 +46,53 @@ void main() {
 	}
 
 
+	//hero stats
+	int hp = 0, str = 0, def = 0, agi = 0;
+
+	bool characterSetup = false;
+
+	while (characterSetup == false)
+	{
+		cout << "What type of character are you?" << endl;
+		cout << "1 - Berserker" << endl;
+		cout << "2 - Buff Nut" << endl;
+		cout << "3 - Speedy Ninja" << endl;
+		int choice;
+		cin >> choice;
+		if (choice == 1){
+			hp = 60;
+			str = 10;
+			def = 2;
+			agi = 3;
+		}
+		else if (choice == 2) {
+			hp = 100;
+			str = 4;
+			def = 5;
+			agi = 1;
+		}
+		if (choice == 3) {
+			hp = 80;
+			str = 3;
+			def = 1;
+			agi = 10;
+		}
+		else
+		{
+			cout << "Invalid choice! Try again..." << endl;
+		}
+
+		if (choice >= 1 && choice <= 3)
+		{
+			characterSetup = true;
+		}
+	}
+
+	cout << "stats" << endl;
+	cout << "hp: " << hp << endl;
+	cout << "strength: " << str << endl;
+	cout << "defense: " << def << endl;
+	cout << "agility: " << agi << endl;
 
 	//lets user interact by pressing anykey
 	system("pause");
