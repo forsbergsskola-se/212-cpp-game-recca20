@@ -1,54 +1,10 @@
 //extra library includes
 #include <iostream> //input and output stream
 #include <string>
+#include "Puzzles.h"
+#include "Character.h"
 
 using namespace std;
-
-int puzzle1() {
-	cout << "Puzzle 1! What is 7 + 2?" << endl;
-	int num;
-	cin >> num;
-	if (num == 9)
-	{
-		cout << "CORRECT!" << endl; 
-		return 0;
-	}
-	else
-	{
-		cout << "INCORRECT!" << endl;
-		return 9;
-	}
-}
-
-int puzzle2(int x, int y) {
-	cout << "Puzzle 2! What is " << x << " + " << y << "?" << endl;
-	int num;
-	cin >> num;
-	if (num == x + y) {
-		cout << "CORRECT!" << endl;
-		return 0;
-	}
-	else
-	{
-		cout << "INCOREECT" << endl;
-		return 15;
-	}
-}
-
-int puzzle3(string name) {
-	cout << "Puzzle 3! What is your name?" << endl;
-	string n;
-	cin >> n;
-	if (n == name) {
-		cout << "CORRECT!" << endl;
-		return 0;
-	}
-	else
-	{
-		cout << "INCOREECT" << endl;
-		return 25;
-	}
-}
 
 void main() {
 	//all of our starter code will start here
@@ -117,7 +73,7 @@ void main() {
 			def = 5;
 			agi = 1;
 		}
-		if (choice == 3) {
+		else if (choice == 3) {
 			hp = 80;
 			str = 3;
 			def = 1;
@@ -155,6 +111,11 @@ void main() {
 
 	hp = hp - dmg;
 	cout << "You are inflicted " << dmg << " amount of damage! Your HP is now " << hp << endl;
+
+	//build an object of class type Character
+	Character testCharacter;
+	testCharacter.setupStats(hp, str, def, agi);
+	testCharacter.displayStats();
 
 	//lets user interact by pressing anykey
 	system("pause");
