@@ -25,6 +25,28 @@ void main() {
 	cin >> age;
 	cout << "So you are " << age << " years old!" << endl;
 
+	cout << "What is your favourite number: " << endl;
+	int favNum;
+	cin >> favNum;
+	cout << "Well you are now stuck in this dungeon for " << favNum << " years! Mwahahahah!" << endl;
+
+	//working out the new age
+	int newAge = age + favNum;
+	cout << "Its time to escape before you turn " << newAge << " years old!" << endl;
+
+	//output earning of they'll be 80 or older
+	if (newAge >= 80)
+	{
+		cout << "You might now even live to this age!" << endl;
+	}
+
+	//if favNum is equal to 64 then output message
+	if (favNum == 64) {
+		cout << "Nice favourite number by the way!" << endl;
+	}
+
+
+
 	//lets user interact by pressing anykey
 	system("pause");
 }
