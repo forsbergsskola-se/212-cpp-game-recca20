@@ -94,6 +94,13 @@ void main() {
 	cout << "defense: " << def << endl;
 	cout << "agility: " << agi << endl;
 
+	cout << "The first gate is opening, counting down..." << endl;
+	//	setup;	condition;	incrementer/decrementer
+	for (int i = 10; i >= 0; i--)
+	{
+		cout << i << "..." << endl;
+	}
+
 	//lets user interact by pressing anykey
 	system("pause");
 }
