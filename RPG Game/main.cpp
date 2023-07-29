@@ -3,6 +3,9 @@
 #include <string>
 #include "Puzzles.h"
 #include "Character.h"
+#include "Hero.h"
+#include "Glob.h"
+#include "Mimic.h"
 
 using namespace std;
 
@@ -116,6 +119,21 @@ void main() {
 	Character testCharacter;
 	testCharacter.setupStats(hp, str, def, agi);
 	testCharacter.displayStats();
+
+	Character testCharacter2;
+	testCharacter2.setupStats(2343, 23, 34, 23);
+	testCharacter.displayStats();
+
+	//testCharacter2.hp = 22;
+	Hero hero;
+	hero.setName(name);
+	hero.setupStats(hp, str, def, agi);
+
+	Glob glob1;//calls constructor and fills in base stats
+
+	hero.takeDamage(glob1.getDamage());
+	glob1.displayStats();
+
 
 	//lets user interact by pressing anykey
 	system("pause");
