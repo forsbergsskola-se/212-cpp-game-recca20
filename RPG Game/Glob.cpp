@@ -16,3 +16,8 @@ Glob::~Glob()
 string Glob::getName() {
 	return "Glob";
 }
+
+void Glob::makeDumbNoise()
+{
+	cout << getName() << " makes a shrieking sound at you!" << endl;
+}

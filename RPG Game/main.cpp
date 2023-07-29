@@ -6,10 +6,15 @@
 #include "Hero.h"
 #include "Glob.h"
 #include "Mimic.h"
+//SDL Libraries
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
 
 using namespace std;
 
-void main() {
+int main(int argc, char** argv) {
 	//all of our starter code will start here
 
 	//output hello world to the screen
@@ -136,12 +141,14 @@ void main() {
 
 	hero.displayStats();
 	glob1.displayStats();
+	glob1.makeDumbNoise();
 
 	//class object pointers
 	Glob* globPtr = new Glob();
 	(*globPtr).displayStats();
 	globPtr->takeDamage(3453);
 	globPtr->displayStats();
+	globPtr->makeDumbNoise();
 
 	delete globPtr;
 	globPtr = NULL;
@@ -150,8 +157,62 @@ void main() {
 		cout << "glob ptr pointing to something" << endl;
 	else
 		cout << "glob is dead!!!" << endl;
-	
+
+	//POLYMORPHISM
+	//reference glob as a character(treat child like parent)
+	Character* charPtr = &glob1;
+	charPtr->takeDamage(-5678);
+	charPtr->displayStats();
+	//casting
+	Glob* globPtr2 = (Glob*)charPtr;
+	globPtr2->makeDumbNoise();
+
+	//Initialise SDL2
+	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+	{
+		//if init not return 0, then initialisation failed
+		cout << "SDL Init Error: " << SDL_GetError() << endl;
+		system("pause");
+		return 1;
+	}
+
+	//TO DO initialise image, mixer, ttf
+
+	SDL_Window* window = SDL_CreateWindow("RPG GAME!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 320, 240, SDL_WINDOW_SHOWN);
+	if (window == NULL)
+	{
+		cout << "SDL window Error: " << SDL_GetError() << endl;
+		SDL_Quit();
+		system("pause");
+		return 1;
+	}
+
+	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	if (renderer == NULL)
+	{
+		cout << "SDL renderer Error: " << SDL_GetError() << endl;
+		SDL_Quit();
+		system("pause");
+		return 1;
+	}
+
+	SDL_SetRenderDrawColor(renderer, 21, 209, 249, 255);//RGB
+	//clear entire screen with current draw colour
+	SDL_RenderClear(renderer);
+
+	SDL_Rect rect;
+	rect.x = 10;
+	rect.y = 10;
+	rect.w = 50;
+	rect.h = 50;
+	SDL_SetRenderDrawColor(renderer, 34, 76, 22, 255);
+	//draws filled in rectangle to window using rectangles data
+	SDL_RenderFillRect(renderer, &rect);
+
+	//swaps drawing buffer
+	SDL_RenderPresent(renderer);
 
 	//lets user interact by pressing anykey
 	system("pause");
+	return 0;
 }

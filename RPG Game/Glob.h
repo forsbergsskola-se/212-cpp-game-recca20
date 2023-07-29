@@ -8,5 +8,6 @@ public:
     ~Glob();
 
     string getName();
+    void makeDumbNoise();
 };
 
