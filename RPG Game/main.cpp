@@ -200,7 +200,7 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	SDL_Window* window = SDL_CreateWindow("RPG GAME!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 320, 240, SDL_WINDOW_SHOWN);
+	SDL_Window* window = SDL_CreateWindow("RPG GAME!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 960, SDL_WINDOW_SHOWN);
 	if (window == NULL)
 	{
 		cout << "SDL window Error: " << SDL_GetError() << endl;
@@ -217,6 +217,16 @@ int main(int argc, char** argv) {
 		SDL_Quit();
 		system("pause");
 		return 1;
+	}
+
+	//the size gfx are at min, but then scale up to actual window size
+	SDL_RenderSetLogicalSize(renderer, 320, 240);
+
+	//load up image file and store as Testure inside of gfx card VRAM
+	SDL_Texture* testImg = IMG_LoadTexture(renderer, "assets/girlIdle.png");
+	if (testImg == NULL)
+	{
+		cout << "Image did not load! " << IMG_GetError() << endl;
 	}
 
 	bool keepLooping = true;
@@ -238,6 +248,23 @@ int main(int argc, char** argv) {
 		SDL_SetRenderDrawColor(renderer, 34, 76, 22, 255);
 		//draws filled in rectangle to window using rectangles data
 		SDL_RenderFillRect(renderer, &rect);
+
+		//the region of the texture we want to draw from
+		SDL_Rect srcRect;
+		srcRect.x = 20;
+		srcRect.y = 50;
+		srcRect.w = 55;
+		srcRect.h = 75;
+
+		//texture destination rectangle
+		SDL_Rect destRect;
+		destRect.x = 70;
+		destRect.y = 20;
+		destRect.w = 700;
+		destRect.h = 137;
+
+		//renderCopy renders textures to the window
+		SDL_RenderCopy(renderer, testImg, &srcRect, &destRect);
 
 		//swaps drawing buffer
 		SDL_RenderPresent(renderer);
