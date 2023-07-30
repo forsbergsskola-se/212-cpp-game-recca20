@@ -1,1 +1,29 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-8d59dc4de5201274e310e4c54b9627a8934c3b88527886e3b421487c677d23eb.svg)](https://classroom.github.com/a/xhZBU6iz)
+# RPG Game (C++, SDL)
+
+## Summary ## 
+This C++ game was developed as part of an assignment to learn the fundamentals of game development using SDL and implementing design patterns. The game's premise revolves around an example of RPG scenario where the player finds themselves trapped in a treacherous cave, with the objective of surviving and escaping.
+
+In order to achieve this goal, players must engage in battles with various enemies that inhabit the cave. The player must explore the cave, searching for and collecting valuable items hidden within chests. These items likely serve as power-ups, resources, or tools to aid the player's survival and escape.
+
+Overall, the game provides an opportunity for me to apply my C++ skills, utilize the SDL library, and learn about game development concepts such as game design, combat mechanics, item management, and exploration in an RPG setting.
+
+## Design Patterns ##
+#### 1.Factory Pattern ####
+In the character setup section, the code uses a factory-like pattern to create different types of characters (Berserker, Buff Nut, Speedy Ninja). Instead of creating character objects directly, it allows the player to choose a character type, and based on that choice, it sets up the character's stats accordingly. This pattern helps to encapsulate the character creation logic and provides a simple interface for creating different character instances.
+
+#### 2.Observer Pattern 
+The MapScreen class appears to be utilizing a form of the Observer pattern, where it listens for changes in the game world (player's movements, interactions, etc.) and updates the display accordingly. This pattern allows decoupling between the game logic (observable) and the graphical representation (observer), making it easier to manage and update the game state without directly affecting the rendering code.
+
+## Noteworthy C++ Features 
+
+#### 1.Runtime Polymorphism (Inheritance) ####
+In the code, the concept of runtime polymorphism is demonstrated through the use of inheritance. The Character class serves as the base class, and the Hero and Glob classes are derived from it. This allows different character types to be represented and managed through a common interface, Character, while providing specific implementations for each derived class.
+
+#### 2.Compile-Time Polymorphism (Function Overloading) #####
+Compile-time polymorphism is demonstrated through function overloading. For example, the Character class has a member function called setupStats that is overloaded with different versions depending on the arguments provided. The appropriate version of the function is resolved at compile-time based on the number and types of arguments passed.
+
+#### 3.Function Pointers ####
+In the code, function pointers are not explicitly used. However, the concept of function pointers is relevant to the use of virtual functions for achieving runtime polymorphism. Virtual functions allow the derived classes (Hero and Glob) to override the base class's behavior and enable the correct function to be called based on the type of the object during runtime.
+
+#### 4.Collections (Array) ####
+The code uses an integer array named items to represent the player's inventory. The array holds information about different items, and the index of the array is used to identify different items (e.g., 0 represents no item, 1 represents chocolate, etc.). This array can be considered a basic form of a collection used to store and manage data.
