@@ -8,6 +8,7 @@
 #include <list> // is a container that can shrink and grow (others vector, map, queue, stack)
 
 #include <fstream>//file stream
+#include "InfoBox.h"
 
 using namespace std;
 
@@ -28,6 +29,8 @@ public:
 	SDL_Texture* heroTexture, * doorTexture, * globTexture, * chestTexture;
 
 	bool quit = false;
+
+	InfoBox infoBox;
 
 	MapScreen(SDL_Renderer* renderer, Hero* hero, int* items);
 	~MapScreen();
