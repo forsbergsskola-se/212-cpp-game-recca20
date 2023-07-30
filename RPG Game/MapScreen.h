@@ -25,6 +25,8 @@ public:
 	MapObject door;
 	list<MapObject> mapObjects;
 
+	SDL_Texture* heroTexture, * doorTexture, * globTexture, * chestTexture;
+
 	MapScreen(SDL_Renderer* renderer, Hero* hero, int* items);
 	~MapScreen();
 

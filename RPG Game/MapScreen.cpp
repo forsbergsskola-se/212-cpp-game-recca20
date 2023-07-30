@@ -42,17 +42,66 @@ MapScreen::MapScreen(SDL_Renderer* renderer, Hero* hero, int* items)
 					map[x][y] = 1;//land
 
 					//TODO was it a hero, glob, chest or mimic???
+					if (grid == 'h')
+					{
+						heroObj.type = 1;
+						heroObj.x = x;
+						heroObj.y = y;
+					}
+					else if (grid == 'd')
+					{
+						door.type = 2;
+						door.x = x;
+						door.y = y;
+					}
+					else if (grid == 'c')
+					{
+						MapObject chest;
+						chest.type = 5;
+						chest.x = x;
+						chest.y = y;
+
+						mapObjects.push_back(chest);
+					}
+					else if (grid == 'g')
+					{
+						MapObject glob;
+						glob.type = 3;
+						glob.x = x;
+						glob.y = y;
+
+						mapObjects.push_back(glob);
+					}
+					else if (grid == 'm')
+					{
+						MapObject mimic;
+						mimic.type = 4;
+						mimic.x = x;
+						mimic.y = y;
+
+						mapObjects.push_back(mimic);
+					}
 				}
 			}
 		}
 	}
 	//close file
 	mapFile.close();
+
+	//LOAD UP TILE TEXTURES
+	heroTexture = IMG_LoadTexture(renderer, "assets/girlTile.png");
+	doorTexture = IMG_LoadTexture(renderer, "assets/doorTile.png");
+	globTexture = IMG_LoadTexture(renderer, "assets/globTile.png");
+	chestTexture = IMG_LoadTexture(renderer, "assets/chestTile.png");
 }
 
 MapScreen::~MapScreen()
 {
-
+	//CLEANUP TEXTURE MEMORY
+	SDL_DestroyTexture(heroTexture);
+	SDL_DestroyTexture(doorTexture);
+	SDL_DestroyTexture(globTexture);
+	SDL_DestroyTexture(chestTexture);
 }
 
 void MapScreen::draw()
@@ -81,6 +130,35 @@ void MapScreen::draw()
 			tileRect.y = y * tileRect.h;
 			//draw rectangle to screen using current draw colourl
 			SDL_RenderFillRect(renderer, &tileRect);
+		}
+	}
+
+	//DRAW MAP OBJECTS
+	//draw hero
+	tileRect.x = heroObj.x * tileRect.w; //e.g hero x = 4, y = 6. tile w = 32 h = 32
+	tileRect.y = heroObj.y * tileRect.h;
+	SDL_RenderCopy(renderer, heroTexture, NULL, &tileRect);
+	//draw door
+	tileRect.x = door.x * tileRect.w;
+	tileRect.y = door.y * tileRect.h;
+	SDL_RenderCopy(renderer, doorTexture, NULL, &tileRect);
+	//DRAW MAP OBJECTS IN LIST
+	//loop through list and draw each object
+	for (MapObject mo : mapObjects)
+	{
+		//NOTE: mo is a mapObect copy from mapObjects and is not a direct reference to the mapOject
+		if (mo.active)
+		{
+			tileRect.x = mo.x * tileRect.w;
+			tileRect.y = mo.y * tileRect.h;
+			if (mo.type == 3)//glob
+			{
+				SDL_RenderCopy(renderer, globTexture, NULL, &tileRect);
+			}
+			else//mimic or chest
+			{
+				SDL_RenderCopy(renderer, chestTexture, NULL, &tileRect);
+			}
 		}
 	}
 }
