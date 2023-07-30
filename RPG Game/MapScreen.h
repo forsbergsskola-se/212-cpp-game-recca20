@@ -4,6 +4,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "Hero.h"
+#include "MapObject.h"
+#include <list> // is a container that can shrink and grow (others vector, map, queue, stack)
 
 #include <fstream>//file stream
 
@@ -19,6 +21,9 @@ public:
 
 	//2d array representing the map. 0 values = walls, 1 values = can walk/ground
 	int map[10][10];
+	MapObject heroObj;
+	MapObject door;
+	list<MapObject> mapObjects;
 
 	MapScreen(SDL_Renderer* renderer, Hero* hero, int* items);
 	~MapScreen();
