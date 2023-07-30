@@ -2,6 +2,13 @@
 
 MapScreen::MapScreen(SDL_Renderer* renderer, Hero* hero, int* items) 
 {
+	//NOTE:computer code random is pseudorandom (fake random)
+	//setting a seed value for the random algorithm will generate a set of numbers which appear random
+	//if we use thesame seed value each time then we'll get the exact same 'random' outcomes
+	//THEREFORE we will set the seed as a changing value, the seconds since start of the year 
+	//so that the seed value is different each time we run the game
+	srand(time(NULL));
+
 	this->renderer = renderer;
 	this->hero = hero;
 	this->items = items;
@@ -109,6 +116,41 @@ MapScreen::~MapScreen()
 	SDL_DestroyTexture(chestTexture);
 }
 
+void MapScreen::itemFound()
+{
+	//randomly pick an item (between 1-4)
+	int item = rand() % 4 + 1;//rand gets next number out of random number set (value between 0-2147483647)
+	//try find a free slot for this item!
+	bool freeSlotFount = false;
+	for (int i = 0; i < 10; i++)
+	{
+		//once find free slot, set it to the item and exit the loop
+		if (items[i] == 0)
+		{
+			freeSlotFount = true;
+			items[i] = item;
+			break;//exits the loop
+		}
+	}
+
+	if (freeSlotFount)
+	{
+		if (item == 1)
+			infoBox.setText("Found chocolate!");
+		if (item == 2)
+			infoBox.setText("Found grenade!");
+		if (item == 3)
+			infoBox.setText("Found ATK Boost!");
+		if (item == 4)
+			infoBox.setText("Found DEF Boost!");
+	}
+	else
+	{
+		infoBox.setText("Your bag is full!");
+	}
+	infoBox.visible = true;
+}
+
 void MapScreen::update()
 {
 	//read user inputs including keyboard, mouse, gamepads, screen resize/close, touchscreens etc
@@ -168,6 +210,39 @@ void MapScreen::update()
 					//set heroObn.x and y to hx and hy
 					heroObj.x = hx;
 					heroObj.y = hy;
+
+					//see if we walked onto a map objectl
+					//for(int i = 1; i <= 10; i++)
+					for (list<MapObject>::iterator mo = mapObjects.begin(); mo != mapObjects.end(); mo++)
+					{
+						//iterator is a special pointer pointing to a position in a list
+						//dereferencing(*) iterator you access to the item at that point in the list
+
+						//only interact with active map objects
+						if ((*mo).active)
+						{
+							//is hero's x,y overlapping this mapobjects x.y
+							if (heroObj.x == mo->x && heroObj.y == mo->y)
+							{
+								mo->active = false;
+
+								//check map objects type and deal with accordingly
+								if (mo->type == 3)
+								{
+									//TODO battle glob
+								}
+								if (mo->type == 4)
+								{
+									//TODO battle mimic
+								}
+								if (mo->type == 5)
+								{
+									//TODO open chest get item
+									itemFound();
+								}
+							}
+						}
+					}
 				}
 				else
 				{

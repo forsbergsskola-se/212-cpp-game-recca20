@@ -10,6 +10,9 @@
 #include <fstream>//file stream
 #include "InfoBox.h"
 
+#include <stdlib.h>//useful functions including rand and srand
+#include <time.h>//time in seconds since start of year
+
 using namespace std;
 
 class MapScreen
@@ -35,6 +38,7 @@ public:
 	MapScreen(SDL_Renderer* renderer, Hero* hero, int* items);
 	~MapScreen();
 
+	void itemFound();
 	void update();
 	void draw();
 };
