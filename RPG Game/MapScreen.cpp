@@ -251,6 +251,24 @@ void MapScreen::update()
 			}
 		}
 	}
+
+	//check to see if map objects all inactive and if we should unlock the door
+	if (!infoBox.visible && doorLocked)
+	{
+		bool monstersAlive = false;
+		for (MapObject mo : mapObjects)
+		{
+			//if is a monster(glob or mimic)
+			if (mo.type == 3 || mo.type == 4)
+			{
+				//if is active monster?
+				if (mo.active) 
+				{
+					monstersAlive = true;
+				}
+			}
+		}
+	}
 }
 
 void MapScreen::draw()
