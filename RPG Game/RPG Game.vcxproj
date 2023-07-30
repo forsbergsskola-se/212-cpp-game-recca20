@@ -136,6 +136,7 @@
     <ClCompile Include="Glob.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapScreen.cpp" />
     <ClCompile Include="Mimic.cpp" />
     <ClCompile Include="Puzzles.cpp" />
   </ItemGroup>
@@ -143,6 +144,7 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="Glob.h" />
     <ClInclude Include="Hero.h" />
+    <ClInclude Include="MapScreen.h" />
     <ClInclude Include="Mimic.h" />
     <ClInclude Include="Puzzles.h" />
     <ClInclude Include="resource.h" />

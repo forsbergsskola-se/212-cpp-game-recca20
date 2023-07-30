@@ -5,6 +5,8 @@
 #include <SDL_image.h>
 #include "Hero.h"
 
+#include <fstream>//file stream
+
 using namespace std;
 
 class MapScreen

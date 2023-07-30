@@ -6,6 +6,7 @@
 #include "Hero.h"
 #include "Glob.h"
 #include "Mimic.h"
+#include "MapScreen.h"
 //SDL Libraries
 #include <SDL.h>
 #include <SDL_image.h>
@@ -249,6 +250,8 @@ int main(int argc, char** argv) {
 		cout << "items[" << i << "] = " << items[i] << endl;
 	}
 
+	//setup mapscreen object
+	MapScreen mapScreen(renderer, &hero, items);
 
 	bool keepLooping = true;
 	//Game Loop
@@ -286,6 +289,9 @@ int main(int argc, char** argv) {
 
 		//renderCopy renders textures to the window
 		SDL_RenderCopy(renderer, testImg, &srcRect, &destRect);
+
+		//draw game world
+		mapScreen.draw();
 
 		//swaps drawing buffer
 		SDL_RenderPresent(renderer);

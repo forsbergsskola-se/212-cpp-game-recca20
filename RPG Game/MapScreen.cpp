@@ -14,6 +14,40 @@ MapScreen::MapScreen(SDL_Renderer* renderer, Hero* hero, int* items)
 			map[x][y] = 0;
 		}
 	}
+	//manual room building
+	map[1][1] = 1;
+	map[2][1] = 1;
+	map[3][1] = 1;
+	/*map[1][2] = 1;
+	map[2][2] = 1;
+	map[3][2] = 1;*/
+
+	//Open map text file
+	fstream mapFile("assets/map.txt");
+	if (mapFile.is_open())
+	{
+		for (int y = 0; y <= 9; y++)
+		{
+			for (int x = 0; x <= 9; x++)
+			{
+				//read in a single character from where we are up to in the file
+				char grid;
+				mapFile >> grid;
+				if (grid == '0')
+				{
+					map[x][y] = 0; //wall
+				}
+				else
+				{
+					map[x][y] = 1;//land
+
+					//TODO was it a hero, glob, chest or mimic???
+				}
+			}
+		}
+	}
+	//close file
+	mapFile.close();
 }
 
 MapScreen::~MapScreen()
