@@ -51,6 +51,12 @@ Through this assignment, I gained valuable insights into both fundamental and ad
 #### Found some item from the chest
 ![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/0ed40a56-3ccf-4d1f-815a-58fdb10ebf93)
 
+## videos
+
+#### video example of ganeplay player movement, loot item from chest. The battle with the monsters will be updating soon and the empty chest without loot is the mimic monster.
+
+https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/c8192e7c-ea96-4f75-81ba-0e626ae5289b
+
 
 ## OBS!
 The assignments is still in progress and keep updating time to time. There are a lot of features to be added in the future.
