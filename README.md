@@ -1,5 +1,6 @@
 # RPG Game (C++, SDL)
 
+
 ## Summary ## 
 This game was developed as part of an assignment to learn and practice the fundamentals and some advance feature of c++, apply design patterns in game development using SDL. The game's premise revolves around an example of RPG scenario where the player finds themselves trapped in a cave, with the objective of surviving and escaping.
 
@@ -7,12 +8,14 @@ In order to achieve this goal, the player must explore the cave, searching for a
 
 Overall, the game provides an opportunity for me to apply my C++ skills, utilize the SDL library, and learn about game development concepts such as game design, item management, and exploration in an RPG setting.
 
+
 ## Design Patterns ##
 #### 1.Factory Pattern ####
 In the character setup section, the code uses a factory-like pattern to create different types of characters (Berserker, Buff Nut, Speedy Ninja). Instead of creating character objects directly, it allows the player to choose a character type, and based on that choice, it sets up the character's stats accordingly. This pattern helps to encapsulate the character creation logic and provides a simple interface for creating different character instances.
 
 #### 2.Observer Pattern 
 The MapScreen class appears to be utilizing a form of the Observer pattern, where it listens for changes in the game world (player's movements, interactions, etc.) and updates the display accordingly. This pattern allows decoupling between the game logic (observable) and the graphical representation (observer), making it easier to manage and update the game state without directly affecting the rendering code.
+
 
 ## Noteworthy C++ Features 
 
@@ -28,13 +31,23 @@ The concept of function pointers is relevant to the use of virtual functions for
 #### 4.Collections (Array) ####
 The code uses an integer array named items to represent the player's inventory. The array holds information about different items, and the index of the array is used to identify different items (e.g., 0 represents no item, 1 represents chocolate, etc.).
 
+
 ## Challenges
 Despite being new to C++ and having limited knowledge of smart pointers and SDL, I successfully tackled these challenges with the aid of various websites and recommendations from my superior, ultimately overcoming the obstacles and improving my understanding of design patterns and their application.
+
 
 ## Learnings
 Through this assignment, I gained valuable insights into both fundamental and advanced aspects of C++, as well in game development using SDL. Over time, I started to understand the tasks more effectively., and the key lesson I took away from this experience is the importance of maintaining consistency in my approach and actions, which ultimately led to my successful learning and growth.
 
+
+## Screenshots
+
+#### Starting the game
 ![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/a2eb301e-3e47-4988-9105-35c2648279c7)
+
+#### Entering the dungeon
 ![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/b8361478-9445-4e33-9b7e-cbd08aa7da68)
+
+#### Found some item from the chest
 ![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/0ed40a56-3ccf-4d1f-815a-58fdb10ebf93)
 
