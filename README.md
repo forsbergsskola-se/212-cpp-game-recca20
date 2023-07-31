@@ -51,6 +51,10 @@ Through this assignment, I gained valuable insights into both fundamental and ad
 #### Found some item from the chest
 ![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/0ed40a56-3ccf-4d1f-815a-58fdb10ebf93)
 
+#### The door is unlocked message pops up
+![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/6d3bb319-c1d6-4b22-b662-3b699a5f826f)
+
+
 ## videos
 
 #### video example of ganeplay player movement, loot item from chest. The battle with the monsters will be updating soon and the empty chest without loot is the mimic monster.
