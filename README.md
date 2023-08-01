@@ -13,6 +13,10 @@ Overall, the game provides an opportunity for me to apply my C++ skills, utilize
 #### 1.Factory Pattern ####
 In the character setup section, the code uses a factory-like pattern to create different types of characters (Berserker, Buff Nut, Speedy Ninja). Instead of creating character objects directly, it allows the player to choose a character type, and based on that choice, it sets up the character's stats accordingly. This pattern helps to encapsulate the character creation logic and provides a simple interface for creating different character instances.
 
+![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/6b005d89-5274-4f38-a885-a14e9681770a)
+
+In this code snippet, the Factory Method pattern can be observed in the character setup process. The code prompts the player to choose a character type, and based on their choice, it sets up the character's stats accordingly. The decision of which character type to create (Berserker, Buff Nut, or Speedy Ninja) is delegated to the player's choice, acting as a factory for creating character objects.
+
 #### 2.Observer Pattern 
 The MapScreen class appears to be utilizing a form of the Observer pattern, where it listens for changes in the game world (player's movements, interactions, etc.) and updates the display accordingly. This pattern allows decoupling between the game logic (observable) and the graphical representation (observer), making it easier to manage and update the game state without directly affecting the rendering code.
 
