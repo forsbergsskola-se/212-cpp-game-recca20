@@ -126,9 +126,9 @@ int main(int argc, char** argv) {
 	testCharacter.setupStats(hp, str, def, agi);
 	testCharacter.displayStats();
 
-	Character testCharacter2;
+	/*Character testCharacter2;
 	testCharacter2.setupStats(2343, 23, 34, 23);
-	testCharacter2.displayStats();
+	testCharacter2.displayStats();*/
 
 	//testCharacter2.hp = 22;
 	Hero hero;
