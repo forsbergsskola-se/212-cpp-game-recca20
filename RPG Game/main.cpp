@@ -209,7 +209,6 @@ int main(int argc, char** argv) {
 		system("pause");
 		return 1;
 	}
-	
 
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (renderer == NULL)
