@@ -122,9 +122,9 @@ int main(int argc, char** argv) {
 	cout << "You are inflicted " << dmg << " amount of damage! Your HP is now " << hp << endl;
 
 	//build an object of class type Character
-	Character testCharacter;
+	/*Character testCharacter;
 	testCharacter.setupStats(hp, str, def, agi);
-	testCharacter.displayStats();
+	testCharacter.displayStats();*/
 
 	/*Character testCharacter2;
 	testCharacter2.setupStats(2343, 23, 34, 23);
@@ -147,7 +147,7 @@ int main(int argc, char** argv) {
 	//class object pointers
 	Glob* globPtr = new Glob();
 	(*globPtr).displayStats();
-	globPtr->takeDamage(3453);
+	globPtr->takeDamage(10);
 	globPtr->displayStats();
 	globPtr->makeDumbNoise();
 
