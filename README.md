@@ -17,8 +17,11 @@ In the character setup section, the code uses a factory-like pattern to create d
 
 In this code snippet, the Factory Method pattern can be observed in the character setup process. The code prompts the player to choose a character type, and based on their choice, it sets up the character's stats accordingly. The decision of which character type to create (Berserker, Buff Nut, or Speedy Ninja) is delegated to the player's choice, acting as a factory for creating character objects.
 
-#### 2.Observer Pattern 
-The MapScreen class appears to be utilizing a form of the Observer pattern, where it listens for changes in the game world (player's movements, interactions, etc.) and updates the display accordingly. This pattern allows decoupling between the game logic (observable) and the graphical representation (observer), making it easier to manage and update the game state without directly affecting the rendering code.
+#### 2.Game loop pattern 
+
+![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/a3b8c82e-a59d-4686-b98a-e035fdbfbc7e)
+
+My code contains a game loop, which is a common design pattern used in game development. The game loop is implemented using a 'while' loop that runs until the 'keepLooping' variable becomes 'false'. 
 
 
 ## Noteworthy C++ Features 
