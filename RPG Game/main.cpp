@@ -121,52 +121,14 @@ int main(int argc, char** argv) {
 	hp = hp - dmg;
 	cout << "You are inflicted " << dmg << " amount of damage! Your HP is now " << hp << endl;
 
-	//build an object of class type Character
-	/*Character testCharacter;
-	testCharacter.setupStats(hp, str, def, agi);
-	testCharacter.displayStats();*/
-
-	/*Character testCharacter2;
-	testCharacter2.setupStats(2343, 23, 34, 23);
-	testCharacter2.displayStats();*/
+	
 
 	//testCharacter2.hp = 22;
 	Hero hero;
 	hero.setName(name);
 	hero.setupStats(hp, str, def, agi);
 
-	Glob glob1;//calls constructor and fills in base stats
-
-	hero.takeDamage(glob1.getDamage());
-	glob1.takeDamage(hero.getDamage());
-
-	hero.displayStats();
-	glob1.displayStats();
-	glob1.makeDumbNoise();
-
-	//class object pointers
-	Glob* globPtr = new Glob();
-	(*globPtr).displayStats();
-	globPtr->takeDamage(10);
-	globPtr->displayStats();
-	globPtr->makeDumbNoise();
-
-	delete globPtr;
-	globPtr = NULL;
-
-	if (globPtr != NULL) 
-		cout << "glob ptr pointing to something" << endl;
-	else
-		cout << "glob is dead!!!" << endl;
-
-	//POLYMORPHISM
-	//reference glob as a character(treat child like parent)
-	Character* charPtr = &glob1;
-	charPtr->takeDamage(-5678);
-	charPtr->displayStats();
-	//casting
-	Glob* globPtr2 = (Glob*)charPtr;
-	globPtr2->makeDumbNoise();
+	
 
 	//Initialise SDL2
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -238,16 +200,7 @@ int main(int argc, char** argv) {
 		//reference index using variable
 		items[i] = 0;
 	}
-	//set first item slot(index 0) to be our int number representing a chocolate
-	items[0] = 1;
-	//items[1] = 1;
-	//items[2] = 3;
-
-	//cout << "item[0] << endl;
-	for (int i = 0; i <= 9; i++)
-	{
-		cout << "items[" << i << "] = " << items[i] << endl;
-	}
+	
 
 	//setup mapscreen object
 	MapScreen mapScreen(renderer, &hero, items);
