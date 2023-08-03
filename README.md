@@ -53,21 +53,19 @@ Through this assignment, I gained valuable insights into both fundamental and ad
 ![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/a2eb301e-3e47-4988-9105-35c2648279c7)
 
 #### Entering the dungeon
-![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/b8361478-9445-4e33-9b7e-cbd08aa7da68)
+![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/d0182dc0-ca9a-44cb-b90d-e2a7287f0cf6)
 
 #### Found some item from the chest
-![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/0ed40a56-3ccf-4d1f-815a-58fdb10ebf93)
+![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/61a44eb2-37a2-483c-96dd-14b7d4e61dda)
 
 #### The door is unlocked message pops up
-![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/6d3bb319-c1d6-4b22-b662-3b699a5f826f)
-
+![image](https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/59df76c4-d69d-4111-b019-7054a3529b34)
 
 ## videos
 
 #### video example of ganeplay player movement, loot item from chest. The battle with the monsters will be updating soon and the empty chest without loot is the mimic monster.
 
-https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/c8192e7c-ea96-4f75-81ba-0e626ae5289b
-
+https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/aa063eda-cb8d-40ae-a5ff-9c773f73b1a5
 
 ## OBS!
 The assignments is still in progress and keep updating time to time. There are a lot of features to be added in the future.
@@ -79,10 +77,10 @@ Texture rendering,
 Dungeon map,
 User input and movement,
 Infobox,
-Get items from chest
+Get items from chest,
+escape
 
 #### To do
-escape,
 Battle screen start,
 animation class,
 Deltatime,
@@ -94,3 +92,7 @@ Punch face,
 Battle Effects,
 Item Menu,
 Use Item.
+
+#### Download here to try the game. Instruction text included inside The file.
+[Release.zip](https://github.com/forsbergsskola-se/212-cpp-game-recca20/files/12250914/Release.zip)
+
