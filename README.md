@@ -94,5 +94,5 @@ Item Menu,
 Use Item.
 
 #### Download here to try the game. Instruction text included inside The file.
-[Release.zip](https://github.com/forsbergsskola-se/212-cpp-game-recca20/files/12250914/Release.zip)
+[Release.zip](https://github.com/forsbergsskola-se/212-cpp-game-recca20/files/12251644/Release.zip)
 
