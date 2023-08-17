@@ -67,6 +67,8 @@ Through this assignment, I gained valuable insights into both fundamental and ad
 
 https://github.com/forsbergsskola-se/212-cpp-game-recca20/assets/45266094/aa063eda-cb8d-40ae-a5ff-9c773f73b1a5
 
+#### press spacebar to remove the infobox and arrow keys to move.
+
 ## OBS!
 The assignments is still in progress and keep updating time to time. There are a lot of features to be added in the future.
 
@@ -92,7 +94,4 @@ Punch face,
 Battle Effects,
 Item Menu,
 Use Item.
-
-#### Download here to try the game. Instruction text included inside The file.
-[Release.zip](https://github.com/forsbergsskola-se/212-cpp-game-recca20/files/12251644/Release.zip)
 
